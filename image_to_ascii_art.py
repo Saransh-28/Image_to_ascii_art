@@ -12,13 +12,12 @@ ASCII_CHARS.reverse()
 
 # define the dimensions of the output image
 
-frame_w = int(input('Enter the width of the output image(NUMBER OF SYMBOLS WORDS)'))
-frame_h=int(input('Enter the height of the output image(NUMBER OF SYMBOLS WORDS)'))
+frame_w = int(input('Enter the width of the output image(NUMBER OF SYMBOLS WORDS) -- '))
+frame_h = int(input('Enter the height of the output image(NUMBER OF SYMBOLS WORDS) -- '))
 
-# new = Image.new('RGB' , (frame_w*7+50,frame_h*7+50),color=(0,0,0))
-new = Image.new('RGB' , (frame_w*7+50,frame_h*7+50),color=(255,255,255))
+new = Image.new('RGB' , (frame_w*7+50,frame_h*7+50),color=(0,0,0))
 d = ImageDraw.Draw(new)
-font = ImageFont.truetype('The Rift.otf',size=5)
+font = ImageFont.truetype('(enter your desired font)',size=5)
 
 # read the image name and used cv2 to manipulate image
 
@@ -46,8 +45,7 @@ if colour == '1':
             ascii_image[x][y] = str(ASCII_CHARS[element])
             if ascii_image[x][y] == ' ':
                 ascii_image[x][y] += ' '
-            # d.text((25+6*y,25+6*x), text='     '+ascii_image[x][y] , fill=(255,255,255),spacing=1,align='center',font=font)
-            d.text((25+6*y,25+6*x), text='     '+ascii_image[x][y] , fill=(0,0,0),spacing=1,align='center',font=font)
+            d.text((25+6*y,25+6*x), text='     '+ascii_image[x][y] , fill=(255,255,255),spacing=1,align='center',font=font)
     new.save(img_name[:-4]+'_bw.jpg')
 
 # RGB
